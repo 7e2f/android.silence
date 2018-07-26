@@ -1,0 +1,58 @@
+/*
+ * Copyright (C) 2017 Anton Kaliturin <kaliturin@gmail.com>
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
+ *
+ *  http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
+ */
+
+package org.ch.silence;
+
+import android.service.quicksettings.Tile;
+import android.service.quicksettings.TileService;
+import org.ch.silence.utils.Settings;
+
+public class SilenceToggle extends TileService {
+
+    @Override
+    public void onTileAdded() {
+        super.onTileAdded();
+
+        Tile tile = getQsTile();
+
+        tile.setState(Tile.STATE_ACTIVE);
+        tile.updateTile();
+    }
+
+    @Override
+    public void onClick() {
+
+        Tile tile = getQsTile();
+
+        int oldState;
+        int newState;
+
+        oldState = tile.getState();
+
+        if(oldState == Tile.STATE_INACTIVE) {
+            newState = Tile.STATE_ACTIVE;
+            Settings.setBooleanValue(getApplicationContext(), Settings.ENABLE_WHITELIST, true);
+        } else {
+            newState = Tile.STATE_INACTIVE;
+            Settings.setBooleanValue(getApplicationContext(), Settings.ENABLE_WHITELIST, false);
+        }
+
+        tile.setState(newState);
+        tile.updateTile();
+
+        }
+
+}

@@ -1,0 +1,29 @@
+<resources>
+    <!-- Dark theme -->
+    <style name="AppTheme.Dark" parent="Theme.AppCompat">
+        <!-- Custom resources -->
+        <item name="colorAccent">@color/accent_d</item>
+        <item name="colorAccentSecondary">@color/accent2_d</item>
+        <item name="colorTitleBackground">@color/titleBackground_d</item>
+        <item name="colorBorder">@color/border_d</item>
+        <item name="colorIncomeSms">@color/incomeSms_d</item>
+        <item name="colorOutcomeSms">@color/outcomeSms_d</item>
+        <item name="colorTextSms">@color/textSms_d</item>
+        <item name="colorPressed">@color/pressed_d</item>
+        <item name="colorChecked">@color/checked_d</item>
+        <item name="colorText">@color/text_d</item>
+        <item name="colorTextSecondary">@color/text2_d</item>
+        <item name="colorEdit">@color/edit_d</item>
+        <item name="colorWindowBackground">?android:windowBackground</item>
+    </style>
+    <!-- Toolbar dark theme -->
+    <style name="AppTheme.Toolbar.Dark" parent="AppTheme.Dark">
+        <item name="android:textColorSecondary">?colorAccent</item>
+    </style>
+    <!-- ListView dark theme -->
+    <style name="AppTheme.ListView.Dark" parent="AppTheme.Dark">
+        <item name="android:divider">?colorBorder</item>
+        <item name="android:dividerHeight">0.5dp</item>
+        <item name="android:scrollbars">vertical</item>
+    </style>
+</resources>
